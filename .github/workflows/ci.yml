@@ -35,3 +35,10 @@ jobs:
 
       - name: Check formatting
         run: test -z $(go fmt ./...) && echo $?
+
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 1
+      - uses: dominikh/staticcheck-action@v1
+        with:
+          version: "latest"
